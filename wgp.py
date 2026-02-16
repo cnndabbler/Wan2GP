@@ -9147,7 +9147,7 @@ def get_image_end_label(multi_prompts_gen_type):
     return "Images as ending points for new Videos in the Generation Queue" if multi_prompts_gen_type == 0 else "Images as ending points for each new Window of the same Video Generation" 
 
 def refresh_prompt_labels(state, multi_prompts_gen_type, image_mode):
-    prompt_label, wizard_prompt_label =  get_prompt_labels(multi_prompts_gen_type, model_def, image_mode > 0, mode_def.get("audio_only", False))
+    prompt_label, wizard_prompt_label =  get_prompt_labels(multi_prompts_gen_type, model_def, image_mode > 0, model_def.get("audio_only", False))
     return gr.update(label=prompt_label), gr.update(label = wizard_prompt_label), gr.update(label=get_image_end_label(multi_prompts_gen_type))
 
 def update_video_guide_outpainting(video_guide_outpainting_value, value, pos):
